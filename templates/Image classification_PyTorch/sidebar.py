@@ -76,7 +76,8 @@ def show():
             else:
                 classes_note = ""
             st.markdown(
-                f'<sup>Pre-training on ImageNet, <a href="https://pytorch.org/docs/stable/torchvision/models.html">details</a>{classes_note}</sup>',
+                f'<sup>Pre-training on ImageNet, <a href="https://pytorch.org/docs/stable/torchvision/models.html'
+                f'">details</a>{classes_note}</sup>',
                 unsafe_allow_html=True,
             )
 

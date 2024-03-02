@@ -17,9 +17,8 @@ import utils
 
 
 MAGE_EMOJI_URL = "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/259/mage_1f9d9.png"
-
-
 # Set page title and favicon.
+
 st.set_page_config(
     page_title="Traingenerator", page_icon=MAGE_EMOJI_URL,
 )
@@ -43,8 +42,6 @@ if os.getenv("GITHUB_TOKEN") and os.getenv("REPO_NAME"):
         )
         colab_link = f"http://colab.research.google.com/github/{os.getenv('REPO_NAME')}/blob/main/notebooks/{notebook_id}/generated-notebook.ipynb"
         return colab_link
-
-
 else:
     colab_enabled = False
 
@@ -103,7 +100,8 @@ for template_dir in template_dirs:
 # template-specific sidebar components are shown below).
 with st.sidebar:
     st.info(
-        "🎈 **NEW:** Add your own code template to this site! [Guide](https://github.com/jrieke/traingenerator#adding-new-templates)"
+        "🎈 **NEW:** Add your own code template to this site! [Guide]("
+        "https://github.com/jrieke/traingenerator#adding-new-templates)"
     )
     # st.error(
     #     "Found a bug? [Report it](https://github.com/jrieke/traingenerator/issues) 🐛"
@@ -141,7 +139,7 @@ notebook = utils.to_notebook(notebook_code)
 # Display donwload/open buttons.
 # TODO: Maybe refactor this (with some of the stuff in utils.py) to buttons.py.
 st.write("")  # add vertical space
-col1, col2, col3 = st.beta_columns(3)
+col1, col2, col3 = st.columns(3)
 open_colab = col1.button("🚀 Open in Colab")  # logic handled further down
 with col2:
     utils.download_button(code, "generated-code.py", "🐍 Download (.py)")
